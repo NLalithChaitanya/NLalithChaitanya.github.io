@@ -189,6 +189,51 @@
     pointer-events: none;
   }
 
+  /* ---- ABOUT ---- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .about-text { display: flex; flex-direction: column; gap: 16px; }
+  .about-text p { font-size: 14.5px; color: var(--text); line-height: 1.8; }
+  .domain-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .domain-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.2s;
+  }
+  .domain-card:hover {
+    border-color: var(--indigo);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(99,102,241,0.1);
+  }
+  .domain-icon { font-size: 20px; margin-bottom: 8px; }
+  .domain-name {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .domain-desc {
+    font-size: 11.5px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .domain-cards { grid-template-columns: 1fr 1fr; }
+  }
+
   /* ---- EXPERIENCE ---- */
   .exp-card {
     background: var(--card);
@@ -445,6 +490,7 @@
     background: var(--surface);
     border: 1px solid var(--border);
     padding: 3px 10px; border-radius: 4px;
+    max-width: 60%; text-align: right;
   }
 
   /* ---- SCROLL REVEAL ---- */
@@ -474,23 +520,25 @@
 <nav>
   <div class="nav-logo">NLC<span>.</span></div>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
+    <li><a href="#about">Education</a></li>
+    <li><a href="#aboutme">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#achievements">Achievements</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <p class="hero-pre">// computer_vision · machine_learning · data_science</p>
+  <p class="hero-pre">// data_science · machine_learning · applied_ai</p>
   <h1 class="hero-name"><span style="color:var(--white)">Nellimarla</span><br>Lalith <span class="accent">Chaitanya</span></h1>
-  <p class="hero-tagline">Building intelligent systems that work in the real world<span class="cursor"></span></p>
+  <p class="hero-tagline">Turning messy data into decisions that move numbers<span class="cursor"></span></p>
   <p class="hero-desc">
-    ML Engineer & Research Intern at NIT Trichy. I work at the intersection of computer vision, 
-    temporal modeling, and production ML — from BiLSTM violence detection systems to end-to-end 
-    customer intelligence pipelines.
+    Data Scientist & ML Research Intern with hands-on experience across <strong style="color:var(--heading)">finance, fraud detection, customer churn, LTV modeling, and recommendation systems</strong>. 
+    I build end-to-end pipelines — from raw data and feature engineering through model deployment and business impact measurement. 
+    Currently researching real-time computer vision at NIT Trichy, where my work combines rigorous experimentation with production-grade efficiency constraints.
   </p>
   <div class="hero-btns">
     <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -511,7 +559,65 @@
       </div>
       <div class="edu-right">
         <div class="edu-period">Aug 2023 — May 2027</div>
-        <div class="edu-cgpa">7.56 <span>/ 10 CGPA</span></div>
+        <div class="edu-cgpa">7.42 <span>/ 10 CGPA</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="aboutme">
+  <div class="reveal">
+    <p class="section-label">// 02 · about</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a Data Science & AI undergrad at IIIT Kottayam, with a research internship at NIT Trichy 
+          and a consistent focus on applied ML that solves real business problems.
+        </p>
+        <p>
+          My work spans the full data science lifecycle — defining the problem, 
+          engineering features, selecting and validating models, explaining predictions to stakeholders, 
+          and deploying systems that run in production. I care about getting the details right: 
+          fixing data leakage, using honest evaluation protocols, and being upfront about trade-offs.
+        </p>
+        <p>
+          Outside the ML stack, I actively compete on Kaggle and participate in hackathons — 
+          it keeps my problem-solving sharp and grounds my work in competitive, real-world benchmarks.
+        </p>
+      </div>
+      <div class="domain-cards">
+        <div class="domain-card">
+          <div class="domain-icon">💳</div>
+          <div class="domain-name">Finance & Fraud Detection</div>
+          <div class="domain-desc">Behavioral feature engineering, anomaly signals, imbalanced classification</div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-icon">📉</div>
+          <div class="domain-name">Customer Churn & LTV</div>
+          <div class="domain-desc">Churn modeling, lifetime value prediction, forward-looking labeling, SHAP explainability</div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-icon">🎯</div>
+          <div class="domain-name">Recommendation Systems</div>
+          <div class="domain-desc">Collaborative filtering, cold-start problems, content-based and hybrid approaches</div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-icon">⚙️</div>
+          <div class="domain-name">Industrial & Time-Series</div>
+          <div class="domain-desc">SCADA data, LSTM forecasting, asset performance monitoring, R² ≈ 0.97</div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-icon">🎥</div>
+          <div class="domain-name">Computer Vision Research</div>
+          <div class="domain-desc">Real-time detection, Re-ID, spatiotemporal modeling, CPU-optimized deployment</div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-icon">🤖</div>
+          <div class="domain-name">LLM & AI Systems</div>
+          <div class="domain-desc">RAG pipelines, LangGraph agents, FAISS retrieval, natural-language analytics</div>
+        </div>
       </div>
     </div>
   </div>
@@ -520,7 +626,7 @@
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="reveal">
-    <p class="section-label">// 02 · work</p>
+    <p class="section-label">// 03 · work</p>
     <h2 class="section-title">Experience</h2>
     <div class="exp-card">
       <div class="exp-header">
@@ -529,12 +635,12 @@
       </div>
       <div class="exp-role">Computer Vision & Data Science Research Intern · Trichy, Tamil Nadu</div>
       <ul class="exp-items">
-        <li>Developed a <strong>real-time multi-camera violence detection system</strong> with identity-centric tracking and aggressor attribution using person Re-ID.</li>
-        <li>Processed 2,000 videos from the RWF-2000 dataset, generating <strong>5,187 temporal sequences</strong> for model training and evaluation.</li>
-        <li>Engineered <strong>541-dimensional spatiotemporal features</strong> capturing appearance, motion, pose, and interaction dynamics.</li>
-        <li>Built a <strong>BiLSTM-based temporal model</strong> achieving <strong>0.78 F1-score</strong> and <strong>87.6% recall</strong> for high-recall violence detection.</li>
-        <li>Compressed the model to <strong>169K parameters</strong>, achieving <strong>60× lower latency</strong> and <strong>6× faster inference</strong> than 3D CNN baselines.</li>
-        <li>Conducted comparative experiments across temporal architectures to optimize real-time deployment performance.</li>
+        <li>Developed <strong>VICTOR</strong> — a real-time multi-camera violence detection framework with identity-aware tracking, cross-camera person Re-ID, and aggressor attribution.</li>
+        <li>Built a feature extraction pipeline over RWF-2000, generating <strong>5,292 temporal sequences</strong> with <strong>541-dimensional multimodal behavioral representations</strong>.</li>
+        <li>Designed a lightweight <strong>BiLSTM-based temporal model</strong> achieving <strong>F1-score 0.8513</strong> and <strong>91.25% recall</strong> for violence detection.</li>
+        <li>Reduced model complexity to <strong>169K parameters</strong>, delivering <strong>60× lower latency</strong> and <strong>6× faster inference</strong> than 3D CNN baselines on CPU.</li>
+        <li>Performed extensive ablation and runtime scalability studies, validating efficient real-time deployment across increasing numbers of tracked identities.</li>
+        <li>Authored research paper <em>"VICTOR: Identity-Centric Temporal Modeling for Multi-Camera Violence Detection and Aggressor Attribution"</em> — currently <strong>under peer review</strong>.</li>
       </ul>
     </div>
   </div>
@@ -543,7 +649,7 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="reveal">
-    <p class="section-label">// 03 · build</p>
+    <p class="section-label">// 04 · build</p>
     <h2 class="section-title">Projects</h2>
     <div class="projects-grid">
 
@@ -605,7 +711,7 @@
 <!-- SKILLS -->
 <section id="skills">
   <div class="reveal">
-    <p class="section-label">// 04 · stack</p>
+    <p class="section-label">// 05 · stack</p>
     <h2 class="section-title">Technical Skills</h2>
     <div class="skills-grid">
 
@@ -624,41 +730,56 @@
           <span class="skill-pill">Scikit-learn</span>
           <span class="skill-pill">XGBoost</span>
           <span class="skill-pill">LightGBM</span>
+          <span class="skill-pill">Predictive Modeling</span>
           <span class="skill-pill">Feature Engineering</span>
-          <span class="skill-pill">Cross-Validation</span>
-          <span class="skill-pill">Hyperparameter Tuning</span>
+          <span class="skill-pill">Clustering</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-title"><span class="icon">🧠</span> Deep Learning & CV</div>
+        <div class="skill-group-title"><span class="icon">🧠</span> Deep Learning & AI</div>
         <div class="skill-pills">
           <span class="skill-pill">PyTorch</span>
           <span class="skill-pill">TensorFlow</span>
           <span class="skill-pill">BiLSTM</span>
           <span class="skill-pill">CNNs</span>
           <span class="skill-pill">Transformers</span>
+          <span class="skill-pill">NLP</span>
           <span class="skill-pill">OpenCV</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-title"><span class="icon">📊</span> Data Science</div>
+        <div class="skill-group-title"><span class="icon">✨</span> Generative AI & LLMs</div>
+        <div class="skill-pills">
+          <span class="skill-pill">LangChain</span>
+          <span class="skill-pill">LangGraph</span>
+          <span class="skill-pill">Hugging Face</span>
+          <span class="skill-pill">FAISS</span>
+          <span class="skill-pill">RAG</span>
+          <span class="skill-pill">MCP</span>
+          <span class="skill-pill">Prompt Engineering</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title"><span class="icon">📊</span> Data Science & Statistics</div>
         <div class="skill-pills">
           <span class="skill-pill">Pandas</span>
           <span class="skill-pill">NumPy</span>
           <span class="skill-pill">EDA</span>
-          <span class="skill-pill">Statistical Analysis</span>
+          <span class="skill-pill">A/B Testing</span>
           <span class="skill-pill">SHAP</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-title"><span class="icon">🚀</span> MLOps & Systems</div>
+        <div class="skill-group-title"><span class="icon">🚀</span> MLOps & Engineering</div>
         <div class="skill-pills">
           <span class="skill-pill">ETL Pipelines</span>
           <span class="skill-pill">FastAPI</span>
           <span class="skill-pill">Docker</span>
+          <span class="skill-pill">MLflow</span>
           <span class="skill-pill">Git</span>
           <span class="skill-pill">Linux</span>
           <span class="skill-pill">Real-Time Inference</span>
@@ -680,10 +801,32 @@
   </div>
 </section>
 
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="reveal">
+    <p class="section-label">// 06 · recognition</p>
+    <h2 class="section-title">Achievements</h2>
+    <div class="cert-list">
+      <div class="cert-item">
+        <div class="cert-name">📄 Research Paper Under Peer Review</div>
+        <div class="cert-issuer">"VICTOR: Identity-Centric Temporal Modeling for Multi-Camera Violence Detection and Aggressor Attribution"</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name">🏆 Smart India Hackathon (SIH)</div>
+        <div class="cert-issuer">Qualified for Internal Selection Round</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name">💻 200+ Coding Problems Solved</div>
+        <div class="cert-issuer">LeetCode & HackerRank</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CERTS -->
 <section id="certifications">
   <div class="reveal">
-    <p class="section-label">// 05 · credentials</p>
+    <p class="section-label">// 07 · credentials</p>
     <h2 class="section-title">Certifications</h2>
     <div class="cert-list">
       <div class="cert-item">
