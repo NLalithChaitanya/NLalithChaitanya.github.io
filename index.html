@@ -96,7 +96,7 @@ h1{
 .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
 
 /* SECTION SHELL */
-section{padding:70px 0;border-top:1px solid var(--border-soft)}
+section{padding:70px 0;border-top:1px solid var(--border-soft);scroll-margin-top:80px}
 .sec-title{
   font-size:13px;font-weight:600;color:var(--gray-dim);
   margin-bottom:32px;
@@ -463,6 +463,19 @@ mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   mobile.classList.remove('open');
   toggle.setAttribute('aria-expanded', 'false');
 }));
+
+/* Intercept in-page hash links so they scroll instead of triggering
+   an external-navigation prompt in embedded/iframe viewers. */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
 </script>
 </body>
 </html>
